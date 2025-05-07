@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:states_provider/about.dart';
+import 'package:states_provider/main.dart';
+import 'package:states_provider/model/screen_argument.dart';
+import 'package:states_provider/settings.dart';
 
 const kTitle = 'Provider';
 
@@ -24,15 +28,21 @@ class DrawerMenu extends StatelessWidget {
             ),
           ),
           getListTile('Home', onTap: () {
-            Navigator.pushReplacementNamed(context, '/');
+            Navigator.pushReplacementNamed(context, MyApp.initialRoute,
+                arguments: ScreenArguments('Extract Arguments Screen',
+                    'This message is extracted in the build method.'));
           }),
           getLine(),
           getListTile('About', onTap: () {
-            Navigator.pushReplacementNamed(context, '/about');
+            Navigator.pushReplacementNamed(context, About.route,
+                arguments: ScreenArguments('Extract Arguments Screen',
+                    'This message is extracted in the build method.'));
           }),
           getLine(),
           getListTile('Settings', onTap: () {
-            Navigator.pushReplacementNamed(context, '/settings');
+            Navigator.pushReplacementNamed(context, Settings.route,
+                arguments: ScreenArguments('Extract Arguments Screen',
+                    'This message is extracted in the build method.'));
           }),
         ],
       ),
